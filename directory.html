@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Corporate Office Directory</title>
+
+<meta property="og:title" content="Corporate Office Directory">
+<meta property="og:description" content="Building Lobby Directory">
+<meta property="og:image" content="rahul.jpg">
+<meta property="og:type" content="website">
+
+<style>
+body{
+margin:0;
+background:#111;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+img{
+max-width:95%;
+border-radius:8px;
+box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+</style>
+
+</head>
+
+<body>
+
+<img id="directoryImage" src="rahul.jpg">
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const name = params.get("name");
+
+if(name === "rahul"){
+document.getElementById("directoryImage").src = "rahul.jpg";
+}
+</script>
+
+</body>
+</html>

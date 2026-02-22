@@ -6,7 +6,7 @@
 
 <meta property="og:title" content="Corporate Office Directory">
 <meta property="og:description" content="Building Lobby Directory">
-<meta property="og:image" content="rahul.jpg">
+<meta property="og:image" content="board.jpg">
 <meta property="og:type" content="website">
 
 <style>
@@ -17,12 +17,29 @@ display:flex;
 justify-content:center;
 align-items:center;
 height:100vh;
+font-family: Arial, sans-serif;
 }
 
-img{
+.container{
+position:relative;
+display:inline-block;
+}
+
+.board{
 max-width:95%;
 border-radius:8px;
 box-shadow:0 0 20px rgba(0,0,0,0.6);
+}
+
+.nameOverlay{
+position:absolute;
+top:58%;
+left:50%;
+transform:translate(-10%,-50%);
+font-size:28px;
+font-weight:500;
+color:#111;
+white-space:nowrap;
 }
 </style>
 
@@ -30,14 +47,18 @@ box-shadow:0 0 20px rgba(0,0,0,0.6);
 
 <body>
 
-<img id="directoryImage" src="rahul.jpg">
+<div class="container">
+<img class="board" src="board.jpg">
+<div class="nameOverlay" id="name"></div>
+</div>
 
 <script>
 const params = new URLSearchParams(window.location.search);
-const name = params.get("name");
+let name = params.get("name");
 
-if(name === "rahul"){
-document.getElementById("directoryImage").src = "rahul.jpg";
+if(name){
+name = name.replace(/_/g," ");
+document.getElementById("name").innerText = name;
 }
 </script>
 
